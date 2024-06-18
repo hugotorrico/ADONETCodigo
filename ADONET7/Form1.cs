@@ -39,5 +39,43 @@ namespace ADONET7
 
             }
         }
+
+        private void btnFiltros_Click(object sender, EventArgs e)
+        {
+            dgvDemo.Rows.Clear();
+            //Abrir la cadena de conexión
+            using (var connection = new SqlConnection(cadena))
+            {
+
+                //Usar el procedimiento almacenado
+                SqlCommand cmd = new SqlCommand("USP_GetClinicsByName", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Enviar los parámetros
+                SqlParameter parameter = new SqlParameter("@Name", SqlDbType.VarChar, 50);
+                parameter.Value = txtName.Text;
+                cmd.Parameters.Add(parameter);
+
+
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                //Recorrer el data reader
+                while (reader.Read())
+                {
+                    //int Id = reader.GetInt32(0);
+                    //string nombre = reader.GetString(1);
+
+                    int Id = reader["ClinicID"] != DBNull.Value ? Convert.ToInt32(reader["ClinicID"]) : 0;
+                    string nombre = reader["ClinicName"] != DBNull.Value ? Convert.ToString(reader["ClinicName"]) : "";
+                    int cantidad = reader["cantidad"] != DBNull.Value ? Convert.ToInt32(reader["cantidad"]) : 0;
+                    dgvDemo.Rows.Add(Id.ToString(), nombre, cantidad);
+                }
+
+
+                reader.Close();
+
+            }
+        }
     }
 }

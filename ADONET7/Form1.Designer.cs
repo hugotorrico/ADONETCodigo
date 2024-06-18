@@ -33,6 +33,8 @@
             ClinicID = new DataGridViewTextBoxColumn();
             ClinicName = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
+            btnFiltros = new Button();
+            txtName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvDemo).BeginInit();
             SuspendLayout();
             // 
@@ -74,17 +76,37 @@
             cantidad.HeaderText = "cantidad";
             cantidad.Name = "cantidad";
             // 
+            // btnFiltros
+            // 
+            btnFiltros.Location = new Point(255, 76);
+            btnFiltros.Name = "btnFiltros";
+            btnFiltros.Size = new Size(112, 37);
+            btnFiltros.TabIndex = 2;
+            btnFiltros.Text = "Listar Por Nombre";
+            btnFiltros.UseVisualStyleBackColor = true;
+            btnFiltros.Click += btnFiltros_Click;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(384, 84);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(115, 23);
+            txtName.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtName);
+            Controls.Add(btnFiltros);
             Controls.Add(dgvDemo);
             Controls.Add(btnListar);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvDemo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -94,5 +116,7 @@
         private DataGridViewTextBoxColumn ClinicID;
         private DataGridViewTextBoxColumn ClinicName;
         private DataGridViewTextBoxColumn cantidad;
+        private Button btnFiltros;
+        private TextBox txtName;
     }
 }
