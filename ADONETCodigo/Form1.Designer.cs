@@ -30,18 +30,22 @@
         {
             this.btnDemo = new System.Windows.Forms.Button();
             this.dgvDemo = new System.Windows.Forms.DataGridView();
-            this.ClinicID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClinicName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDemo2 = new System.Windows.Forms.Button();
             this.btnDemo3 = new System.Windows.Forms.Button();
+            this.btnUsing = new System.Windows.Forms.Button();
+            this.btnDemoDR = new System.Windows.Forms.Button();
+            this.ClinicID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClinicName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDemo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDemo
             // 
-            this.btnDemo.Location = new System.Drawing.Point(47, 73);
+            this.btnDemo.Location = new System.Drawing.Point(35, 59);
+            this.btnDemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDemo.Name = "btnDemo";
-            this.btnDemo.Size = new System.Drawing.Size(143, 48);
+            this.btnDemo.Size = new System.Drawing.Size(107, 39);
             this.btnDemo.TabIndex = 0;
             this.btnDemo.Text = "Listar";
             this.btnDemo.UseVisualStyleBackColor = true;
@@ -52,13 +56,59 @@
             this.dgvDemo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDemo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClinicID,
-            this.ClinicName});
-            this.dgvDemo.Location = new System.Drawing.Point(47, 169);
+            this.ClinicName,
+            this.Cantidad});
+            this.dgvDemo.Location = new System.Drawing.Point(35, 137);
+            this.dgvDemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDemo.Name = "dgvDemo";
             this.dgvDemo.RowHeadersWidth = 51;
             this.dgvDemo.RowTemplate.Height = 24;
-            this.dgvDemo.Size = new System.Drawing.Size(655, 150);
+            this.dgvDemo.Size = new System.Drawing.Size(551, 122);
             this.dgvDemo.TabIndex = 1;
+            // 
+            // btnDemo2
+            // 
+            this.btnDemo2.Location = new System.Drawing.Point(146, 59);
+            this.btnDemo2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDemo2.Name = "btnDemo2";
+            this.btnDemo2.Size = new System.Drawing.Size(107, 39);
+            this.btnDemo2.TabIndex = 2;
+            this.btnDemo2.Text = "Listar2";
+            this.btnDemo2.UseVisualStyleBackColor = true;
+            this.btnDemo2.Click += new System.EventHandler(this.btnDemo2_Click);
+            // 
+            // btnDemo3
+            // 
+            this.btnDemo3.Location = new System.Drawing.Point(368, 59);
+            this.btnDemo3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDemo3.Name = "btnDemo3";
+            this.btnDemo3.Size = new System.Drawing.Size(107, 39);
+            this.btnDemo3.TabIndex = 3;
+            this.btnDemo3.Text = "ListarDT";
+            this.btnDemo3.UseVisualStyleBackColor = true;
+            this.btnDemo3.Click += new System.EventHandler(this.btnDemo3_Click);
+            // 
+            // btnUsing
+            // 
+            this.btnUsing.Location = new System.Drawing.Point(257, 59);
+            this.btnUsing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsing.Name = "btnUsing";
+            this.btnUsing.Size = new System.Drawing.Size(107, 39);
+            this.btnUsing.TabIndex = 4;
+            this.btnUsing.Text = "Listar Using";
+            this.btnUsing.UseVisualStyleBackColor = true;
+            this.btnUsing.Click += new System.EventHandler(this.btnUsing_Click);
+            // 
+            // btnDemoDR
+            // 
+            this.btnDemoDR.Location = new System.Drawing.Point(479, 59);
+            this.btnDemoDR.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDemoDR.Name = "btnDemoDR";
+            this.btnDemoDR.Size = new System.Drawing.Size(107, 39);
+            this.btnDemoDR.TabIndex = 5;
+            this.btnDemoDR.Text = "Listar DR";
+            this.btnDemoDR.UseVisualStyleBackColor = true;
+            this.btnDemoDR.Click += new System.EventHandler(this.btnDemoDR_Click);
             // 
             // ClinicID
             // 
@@ -76,35 +126,24 @@
             this.ClinicName.Name = "ClinicName";
             this.ClinicName.Width = 125;
             // 
-            // btnDemo2
+            // Cantidad
             // 
-            this.btnDemo2.Location = new System.Drawing.Point(225, 73);
-            this.btnDemo2.Name = "btnDemo2";
-            this.btnDemo2.Size = new System.Drawing.Size(143, 48);
-            this.btnDemo2.TabIndex = 2;
-            this.btnDemo2.Text = "Listar2";
-            this.btnDemo2.UseVisualStyleBackColor = true;
-            this.btnDemo2.Click += new System.EventHandler(this.btnDemo2_Click);
-            // 
-            // btnDemo3
-            // 
-            this.btnDemo3.Location = new System.Drawing.Point(390, 73);
-            this.btnDemo3.Name = "btnDemo3";
-            this.btnDemo3.Size = new System.Drawing.Size(143, 48);
-            this.btnDemo3.TabIndex = 3;
-            this.btnDemo3.Text = "Listar3";
-            this.btnDemo3.UseVisualStyleBackColor = true;
-            this.btnDemo3.Click += new System.EventHandler(this.btnDemo3_Click);
+            this.Cantidad.DataPropertyName = "cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(897, 366);
+            this.Controls.Add(this.btnDemoDR);
+            this.Controls.Add(this.btnUsing);
             this.Controls.Add(this.btnDemo3);
             this.Controls.Add(this.btnDemo2);
             this.Controls.Add(this.dgvDemo);
             this.Controls.Add(this.btnDemo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDemo)).EndInit();
@@ -116,10 +155,13 @@
 
         private System.Windows.Forms.Button btnDemo;
         private System.Windows.Forms.DataGridView dgvDemo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClinicID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClinicName;
         private System.Windows.Forms.Button btnDemo2;
         private System.Windows.Forms.Button btnDemo3;
+        private System.Windows.Forms.Button btnUsing;
+        private System.Windows.Forms.Button btnDemoDR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClinicID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClinicName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }
 
