@@ -35,6 +35,10 @@
             txtIDRol = new TextBox();
             label3 = new Label();
             btnEliminar = new Button();
+            dgvRoles = new DataGridView();
+            RoleID = new DataGridViewTextBoxColumn();
+            RoleName = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
             SuspendLayout();
             // 
             // btnGrabar
@@ -99,11 +103,39 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // dgvRoles
+            // 
+            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoles.Columns.AddRange(new DataGridViewColumn[] { RoleID, RoleName });
+            dgvRoles.Location = new Point(210, 214);
+            dgvRoles.Name = "dgvRoles";
+            dgvRoles.RowHeadersWidth = 51;
+            dgvRoles.RowTemplate.Height = 29;
+            dgvRoles.Size = new Size(339, 188);
+            dgvRoles.TabIndex = 8;
+            // 
+            // RoleID
+            // 
+            RoleID.DataPropertyName = "RoleName";
+            RoleID.HeaderText = "RoleID";
+            RoleID.MinimumWidth = 6;
+            RoleID.Name = "RoleID";
+            RoleID.Width = 125;
+            // 
+            // RoleName
+            // 
+            RoleName.DataPropertyName = "RoleName";
+            RoleName.HeaderText = "RoleName";
+            RoleName.MinimumWidth = 6;
+            RoleName.Name = "RoleName";
+            RoleName.Width = 125;
+            // 
             // frmRoles
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dgvRoles);
             Controls.Add(btnEliminar);
             Controls.Add(label3);
             Controls.Add(txtIDRol);
@@ -113,6 +145,7 @@
             Controls.Add(btnGrabar);
             Name = "frmRoles";
             Text = "frmRoles";
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,5 +159,8 @@
         private TextBox txtIDRol;
         private Label label3;
         private Button btnEliminar;
+        private DataGridView dgvRoles;
+        private DataGridViewTextBoxColumn RoleID;
+        private DataGridViewTextBoxColumn RoleName;
     }
 }
