@@ -18,9 +18,7 @@ namespace ADONET7
             InitializeComponent();
             Listar("");
         }
-        string cadena = "Server=DESKTOP-BCQFL9J\\SQLEXPRESS; " +
-                         "Initial Catalog=WICMonitoriaDBDev; Integrated Security=True;trustservercertificate=True";
-
+        
         #region Eventos
         private void btnGrabar_Click(object sender, EventArgs e)
         {
@@ -45,7 +43,7 @@ namespace ADONET7
         {
             dgvRoles.Rows.Clear();
             //Abrir la cadena de conexión
-            using (var connection = new SqlConnection(cadena))
+            using (var connection = new SqlConnection(Coneccion.cadena))
             {
                 //Usar el procedimiento almacenado
                 SqlCommand cmd = new SqlCommand("USP_GetRoles", connection);
@@ -77,7 +75,7 @@ namespace ADONET7
         }
         void Registrar(string rolName)
         {
-            using (var connection = new SqlConnection(cadena))
+            using (var connection = new SqlConnection(Coneccion.cadena))
             {
 
                 connection.Open();
@@ -100,7 +98,7 @@ namespace ADONET7
         }
         void Actualizar(int rolID, string rolName)
         {
-            using (var connection = new SqlConnection(cadena))
+            using (var connection = new SqlConnection(Coneccion.cadena))
             {
 
                 connection.Open();
@@ -123,7 +121,7 @@ namespace ADONET7
         }
         void Eliminar(int rolID)
         {
-            using (var connection = new SqlConnection(cadena))
+            using (var connection = new SqlConnection(Coneccion.cadena))
             {
 
                 connection.Open();

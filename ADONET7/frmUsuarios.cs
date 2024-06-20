@@ -19,13 +19,12 @@ namespace ADONET7
             InitializeComponent();
         }
 
-        string cadena = "Server=DESKTOP-BCQFL9J\\SQLEXPRESS; " +
-                          "Initial Catalog=WICMonitoriaDBDev; Integrated Security=True;trustservercertificate=True";
+      
         private void btnListar_Click(object sender, EventArgs e)
         {
             dgvUsuarios.Rows.Clear();
             //Abrir la cadena de conexión
-            using (var connection = new SqlConnection(cadena))
+            using (var connection = new SqlConnection(Coneccion.cadena))
             {
                 //Usar el procedimiento almacenado
                 SqlCommand cmd = new SqlCommand("USP_BuscarUsuario2", connection);
