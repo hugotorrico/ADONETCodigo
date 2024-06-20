@@ -58,7 +58,7 @@
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 29;
-            dgvUsuarios.Size = new Size(832, 188);
+            dgvUsuarios.Size = new Size(969, 188);
             dgvUsuarios.TabIndex = 1;
             // 
             // UserID
@@ -85,12 +85,12 @@
             Email.Name = "Email";
             Email.Width = 125;
             // 
-            // Name
+            // Name2
             // 
             Name2.DataPropertyName = "Name";
             Name2.HeaderText = "Name";
             Name2.MinimumWidth = 6;
-            Name2.Name = "Name";
+            Name2.Name = "Name2";
             Name2.Width = 125;
             // 
             // FirstLastName
@@ -120,7 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 563);
+            ClientSize = new Size(1185, 634);
             Controls.Add(txtFiltro);
             Controls.Add(dgvUsuarios);
             Controls.Add(btnListar);

@@ -28,12 +28,12 @@ namespace ADONET7
             using (var connection = new SqlConnection(cadena))
             {
                 //Usar el procedimiento almacenado
-                SqlCommand cmd = new SqlCommand("USP_BuscarUsuario", connection);
+                SqlCommand cmd = new SqlCommand("USP_BuscarUsuario2", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
 
                 //Enviar los parámetros
-                SqlParameter parameter = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                SqlParameter parameter = new SqlParameter("@Filtro", SqlDbType.VarChar, 50);
                 parameter.Value = txtFiltro.Text;
                 cmd.Parameters.Add(parameter);
 
