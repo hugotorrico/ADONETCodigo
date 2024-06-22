@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace ADONET7
@@ -20,15 +21,8 @@ namespace ADONET7
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            int rolId = 0;
-            //Insertar el Rol
-            rolId= InsertRol(txtRol.Text);            
 
-            //Devolver el ID recién registrado
-
-            //Insertar el usuario tomando el ID Devuelto
-            InsertUser(rolId, txtName.Text, txtUserName.Text, txtPassword.Text, txtEmail.Text, txtFirstLastName.Text,
-                txtSecondLastName.Text, Convert.ToInt32(txtRegionID.Text), txtFirma.Text, Convert.ToInt32(txtClinicID.Text));
+            TXInserUserInsertRol();
             MessageBox.Show("Rol y Usuario Creado");
         }
         public void InsertUser(int rolId,
@@ -83,6 +77,32 @@ namespace ADONET7
                 return rolId;
 
             }
+        }
+
+        public void TXInserUserInsertRol()
+        {
+            
+
+            try
+            {
+                int rolId = 0;
+                //Insertar el Rol
+                rolId = InsertRol(txtRol.Text);
+                //Devolver el ID recién registrado
+                //Insertar el usuario tomando el ID Devuelto
+                InsertUser(rolId, txtName.Text, txtUserName.Text, txtPassword.Text, txtEmail.Text, txtFirstLastName.Text,
+                    txtSecondLastName.Text, Convert.ToInt32(txtRegionID.Text), txtFirma.Text, Convert.ToInt32(txtClinicID.Text));
+            }
+            catch (Exception ex)
+            {
+                //Rollback de forma manual
+                //DeleteRol();
+                //DeleteUser();
+
+
+                throw;
+            }
+          
         }
     }
 }
