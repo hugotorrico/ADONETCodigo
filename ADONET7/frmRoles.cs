@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ADONET7.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace ADONET7
 {
     public partial class frmRoles : Form
     {
+        RolDAO dAO = new RolDAO();
         public frmRoles()
         {
             InitializeComponent();
@@ -21,18 +23,18 @@ namespace ADONET7
         
         #region Eventos
         private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            Registrar(txtRol.Text);
+        {          
+            dAO.Registrar(txtRol.Text);
             Listar("");
         }
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            Actualizar(Convert.ToInt32(txtIDRol.Text), txtRol.Text);
+        {            
+            dAO.Actualizar(Convert.ToInt32(txtIDRol.Text), txtRol.Text);
             Listar("");
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Eliminar(Convert.ToInt32(txtIDRol.Text));
+            dAO.Eliminar(Convert.ToInt32(txtIDRol.Text));
             Listar("");
         }
         #endregion
@@ -73,71 +75,7 @@ namespace ADONET7
 
             }
         }
-        void Registrar(string rolName)
-        {
-            using (var connection = new SqlConnection(Coneccion.cadena))
-            {
-
-                connection.Open();
-                SqlCommand command = new SqlCommand("USP_InsertRole", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                //Enviar los parámetros
-                SqlParameter parameter = new SqlParameter("@Name", SqlDbType.VarChar, 50);
-                parameter.Value = rolName;
-                command.Parameters.Add(parameter);
-
-                SqlParameter parameter2 = new SqlParameter("@Enabled", SqlDbType.Bit);
-                parameter2.Value = true;
-                command.Parameters.Add(parameter2);
-
-                command.ExecuteNonQuery();
-                MessageBox.Show("Registro Exitoso");
-
-            }
-        }
-        void Actualizar(int rolID, string rolName)
-        {
-            using (var connection = new SqlConnection(Coneccion.cadena))
-            {
-
-                connection.Open();
-                SqlCommand command = new SqlCommand("USP_UpdateRole", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                //Enviar los parámetros
-                SqlParameter parameter = new SqlParameter("@RoleName", SqlDbType.VarChar, 50);
-                parameter.Value = rolName;
-                command.Parameters.Add(parameter);
-
-                SqlParameter parameter2 = new SqlParameter("@RoleID", SqlDbType.Int);
-                parameter2.Value = rolID;
-                command.Parameters.Add(parameter2);
-
-                command.ExecuteNonQuery();
-                MessageBox.Show("Actualización Exitosa");
-
-            }
-        }
-        void Eliminar(int rolID)
-        {
-            using (var connection = new SqlConnection(Coneccion.cadena))
-            {
-
-                connection.Open();
-                SqlCommand command = new SqlCommand("USP_DeleteRole", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-
-                SqlParameter parameter2 = new SqlParameter("@RoleID", SqlDbType.Int);
-                parameter2.Value = rolID;
-                command.Parameters.Add(parameter2);
-
-                command.ExecuteNonQuery();
-                MessageBox.Show("Eliminación Exitosa");
-
-            }
-        }
+        
 
         #endregion
     }
